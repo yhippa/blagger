@@ -50,6 +50,8 @@
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="blog.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
@@ -92,6 +94,14 @@
         <a class="p-2 text-muted" href="#">Style</a>
         <a class="p-2 text-muted" href="#">Travel</a>
       </nav>
+    </div>
+
+    <div id="app-4">
+      <ol>
+        <li v-for="todo in todos">
+          {{ todo.text }}
+        </li>
+      </ol>
     </div>
 
     <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
@@ -266,6 +276,17 @@
           </ol>
         </div>
 
+        <div id="archives" class="p-4">
+          <h4 class="font-italic">Archives</h4>
+          <ol class="list-unstyled mb-0">
+            <li v-for="date in dates">
+              <a href="#">
+                {{ date.text }}
+              </a>
+            </li>
+          </ol>
+        </div>
+
         <div class="p-4">
           <h4 class="font-italic">Elsewhere</h4>
           <ol class="list-unstyled">
@@ -287,6 +308,39 @@
       <a href="#">Back to top</a>
     </p>
   </footer>
+
+  <script type="text/javascript">
+    var app4 = new Vue({
+      el: '#app-4',
+      data: {
+        todos: [
+          { text: 'Learn JavaScript' },
+          { text: 'Learn Vue' },
+          { text: 'Build something awesome' }
+        ]
+      }
+    })
+
+    var archives = new Vue({
+      el: '#archives',
+      data: {
+        dates: [
+          { text: 'March 2014' },
+          { text: 'February 2014' },
+          { text: 'January 2014' },
+          { text: 'December 2013' },
+          { text: 'November 2013' },
+          { text: 'October 2013' },
+          { text: 'September 2013' },
+          { text: 'August 2013' },
+          { text: 'July 2013' },
+          { text: 'June 2013' },
+          { text: 'May 2013' },
+          { text: 'April 2013' },
+        ]
+      }
+    })
+  </script>
 </body>
 
 </html>
